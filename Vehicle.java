@@ -14,7 +14,7 @@ class Bicycle implements Vehicle{
     // to change gear
     @Override
     public void changeGear(int newGear){
-        gear = newGear;
+          gear = newGear;
     }
 
     // to increase speed
@@ -30,7 +30,7 @@ class Bicycle implements Vehicle{
     }
 
     public void printStates(){
-        System.out.println("speed" + speed + "gear" + gear);
+         System.out.println("speed:" + speed + "gear:" + gear);
     }
 }
 
@@ -44,10 +44,15 @@ class Car implements Vehicle{
     public void changeGear(int newGear){
 
         gear =newGear;
-
     }
 
     //to increase speed
+    @Override
+    public void speedUp(int increment){
+
+        speed = speed + increment;
+    }
+    //to decrease speed
     @Override
     public void applyBrakes(int decrement){
 
@@ -56,7 +61,7 @@ class Car implements Vehicle{
     }
 
     public void printStates(){
-        System.out.println("speed" + speed + "gear" + gear);
+         System.out.println("speed" + speed + "gear" + gear);
     }
 
 }
@@ -64,8 +69,23 @@ class Main{
 
     public static void main(String[] args){
 
-        // creating an instance of  the  Bicycle.
-        Bicycle bicycle  = new bicycle();
-        
+        // creating an instance of  the  Bicycle
+        // doing some operation
+        Bicycle bicycle  = new Bicycle();
+        bicycle.changeGear(2);
+        bicycle.speedUp(3);
+        bicycle.applyBrakes(1);
+
+        System.out.println("Bicycle present state :");
+        bicycle.printStates();
+
+        // creating instance of the car
+        Car car  = new Car();
+        car.changeGear(1);
+        car.speedUp(4);
+        car.applyBrakes(3);
+
+        System.out.println("Car present state :");
+        car.printStates();
     }
 }
