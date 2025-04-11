@@ -1,4 +1,5 @@
 //Creating a interface
+import java.util.Scanner;
 interface Vehicle{
     // all are the abstract methods.
     void changeGear(int a);
@@ -6,7 +7,7 @@ interface Vehicle{
     void applyBrakes(int a);
 }
 // we use keyword implemens to inherit a interface
-class Bicycle implements Vehicle{
+class Truck implements Vehicle{
     
     int speed;
     int gear;
@@ -34,7 +35,7 @@ class Bicycle implements Vehicle{
     }
 }
 
-class Car implements Vehicle{
+class Bike implements Vehicle{
      
     int speed;
     int gear;
@@ -68,24 +69,35 @@ class Car implements Vehicle{
 class Main{
 
     public static void main(String[] args){
+        Scanner myObj = new Scanner(System.in);
+        String CurrentSpeed;
+        String CurrentGear;
+        String BrakeApplied;
+    }
 
         // creating an instance of  the  Bicycle
         // doing some operation
-        Bicycle bicycle  = new Bicycle();
-        bicycle.changeGear(2);
-        bicycle.speedUp(3);
-        bicycle.applyBrakes(1);
+        Truck truck  = new Truck();
+        truck.changeGear(2);
+        truck.speedUp(3);
+        truck.applyBrakes(1);
 
         System.out.println("Bicycle present state :");
-        bicycle.printStates();
+        truck.printStates();
 
-        // creating instance of the car
-        Car car  = new Car();
-        car.changeGear(1);
-        car.speedUp(4);
-        car.applyBrakes(3);
+        // creating instance of the Bike
+        Bike bike  = new Bike();
+        bike.changeGear(1);
+        bike.speedUp(4);
+        bike.applyBrakes(3);
 
-        System.out.println("Car present state :");
-        car.printStates();
-    }
+        System.out.println("Please input the current speed, gear and brake variables:");
+        CurrentSpeed = myObj.nextLine();
+        CurrentGear = myObj.nextLine();
+        BrakeApplied = myObj.nextLine();
+        System.out.println("Current Speed applied:" + CurrentSpeed);
+        System.out.println(" Current Gear applied:" + CurrentSpeed);
+        System.out.println("Current Brake variable applied:" + CurrentSpeed);
+        bike.printStates();
+}
 }
